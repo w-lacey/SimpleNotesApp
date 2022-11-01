@@ -9,10 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.text.TextWatcher;
 
-public class createAccount extends AppCompatActivity {
+public class CreateAccount extends AppCompatActivity {
 
     EditText createAccountEmail;
     EditText createAccountPassword;
@@ -82,7 +81,7 @@ public class createAccount extends AppCompatActivity {
             public void onClick(View view) {
                 boolean success = DB.insertUserDate(createAccountEmail.getText().toString(), confirmAccountPassword.getText().toString());
 
-                Intent intent = new Intent(createAccount.this, MainActivity.class);
+                Intent intent = new Intent(CreateAccount.this, MainActivity.class);
                 startActivity(intent);
             }
         });

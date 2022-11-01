@@ -7,13 +7,11 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -69,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         createAccountLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, createAccount.class);
+                Intent intent = new Intent(MainActivity.this, CreateAccount.class);
                 startActivity(intent);
                 finish();
             }
