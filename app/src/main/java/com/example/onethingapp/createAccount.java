@@ -14,7 +14,6 @@ import android.text.TextWatcher;
 
 public class createAccount extends AppCompatActivity {
 
-    TextView createAccountTitle;
     EditText createAccountEmail;
     EditText createAccountPassword;
     EditText confirmAccountPassword;
