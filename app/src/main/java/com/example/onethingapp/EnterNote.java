@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import org.json.simple.parser.ParseException;
-
 import java.io.IOException;
 
 public class EnterNote extends AppCompatActivity {
@@ -29,7 +27,6 @@ public class EnterNote extends AppCompatActivity {
     saveNote = findViewById(R.id.saveNoteButton);
     String extraNoteContent = getIntent().getStringExtra("noteContent");
     String extraNoteTitle = getIntent().getStringExtra("noteTitle");
-    // Accessing the data using key and value
     if (extraNoteTitle != null && extraNoteContent != null) {
       noteTitle.setText(extraNoteTitle);
       noteContent.setText(extraNoteContent);

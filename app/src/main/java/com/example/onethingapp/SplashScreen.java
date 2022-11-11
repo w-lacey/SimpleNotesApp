@@ -12,7 +12,8 @@ import android.widget.ImageView;
 public class SplashScreen extends AppCompatActivity {
   Animation animation;
   ImageView img;
-    Handler handler = new Handler();
+  final Handler handler = new Handler();
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -20,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
     img = (ImageView) findViewById(R.id.splashScreenLogo);
     animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.pop);
     img.startAnimation(animation);
-    Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+    Intent intent = new Intent(SplashScreen.this, EnterNote.class);
 
     handler.postDelayed(
         new Runnable() {

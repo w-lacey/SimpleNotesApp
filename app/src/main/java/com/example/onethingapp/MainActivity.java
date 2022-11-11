@@ -15,25 +15,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-  TextView loginPrompt;
-  EditText emailInput;
-  EditText passwordInput;
-  Button loginSubmit;
-  TextView createAccountLink;
-  SQLConnection DB;
-  private SharedPreferences sharedpreferences;
-  Context context;
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-    ImageView logoBanner = findViewById(R.id.logoBanner);
-    EditText emailInput = findViewById(R.id.inputEmail);
-    EditText passwordInput = findViewById(R.id.inputPassword);
-    Button loginSubmit = findViewById(R.id.loginSubmitButton);
-    Button createAccountLink = findViewById(R.id.createAccountLink);
-    DB = new SQLConnection(this);
+    setContentView(R.layout.activity_note_list);
 
     Boolean isFirstRun =
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
@@ -41,36 +26,10 @@ public class MainActivity extends AppCompatActivity {
     if (isFirstRun) {
       // show start activity
       startActivity(new Intent(MainActivity.this, SplashScreen.class));
+
+    } else {
+      startActivity(new Intent(MainActivity.this, NoteList.class));
     }
     getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).apply();
-
-    loginSubmit.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            String email = emailInput.getText().toString();
-            String password = passwordInput.getText().toString();
-            boolean check = DB.validateLogin(email, password);
-            if (check) {
-              Intent intent = new Intent(MainActivity.this, EnterNote.class);
-              startActivity(intent);
-            } else {
-              final AlertDialog.Builder alertDialog =
-                  new AlertDialog.Builder(MainActivity.this)
-                      .setTitle(" NOT SUCCESS")
-                      .setMessage("YOU DONT EXISTS");
-              alertDialog.show();
-            }
-          }
-        });
-    createAccountLink.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, CreateAccount.class);
-            startActivity(intent);
-            finish();
-          }
-        });
   }
 }

@@ -1,76 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="#00BCD4"
 	tools:context=".EnterNote"
-	tools:ignore="Overdraw">
+	android:orientation="vertical">
+
 
 	<ScrollView
-		android:id="@+id/scrollView2"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginBottom="136dp"
-		android:fillViewport="true"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.0"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.614">
-
-		<androidx.constraintlayout.widget.ConstraintLayout
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
-
-			<EditText
-				android:id="@+id/noteContentInput"
-				android:layout_width="@dimen/_210sdp"
-				android:layout_height="wrap_content"
-				android:ems="10"
-				android:gravity="start|top"
-				android:hint="Note "
-				android:inputType="textMultiLine"
-				android:minHeight="48dp"
-				android:textSize="30sp"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintHorizontal_bias="0.5"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/noteTitleInput"
-				app:layout_constraintVertical_bias="0.0" />
+		android:id="@+id/scrollView"
+		android:layout_width="match_parent"
+		android:layout_height="0dip"
+		android:layout_weight="1">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 
 			<EditText
 				android:id="@+id/noteTitleInput"
-				android:layout_width="@dimen/_205sdp"
-				android:layout_height="wrap_content"
-				android:background="@null"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/_60sdp"
 				android:ems="10"
-				android:hint="Note Title"
-				android:inputType="textPersonName"
-				android:minHeight="48dp"
-				android:textSize="30sp"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toTopOf="parent"
-				app:layout_constraintVertical_bias="0.076" />
+				android:hint="Title"
+				android:inputType="textPersonName" />
 
-		</androidx.constraintlayout.widget.ConstraintLayout>
+			<EditText
+				android:id="@+id/noteContentInput"
+				android:minHeight="@dimen/_60sdp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:gravity="center_vertical"
+				android:hint="Content"
+				android:inputType="textMultiLine"
+				tools:ignore="SpeakableTextPresentCheck"
+				 />
+		</LinearLayout>
 	</ScrollView>
 
 	<Button
 		android:id="@+id/saveNoteButton"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="Save"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.498"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-		app:layout_constraintVertical_bias="0.056" />
+		android:layout_marginTop="5dp"
+		android:text="New note"
+		android:textAllCaps="false" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
